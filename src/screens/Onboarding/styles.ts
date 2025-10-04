@@ -7,26 +7,10 @@ const styles = StyleSheet.create({
     marginTop: 50,
     marginHorizontal: 20,
   },
-  formContainer: {
-    marginTop: 30,
-    flex: 1,
-    width: '100%',
-  },
   headerText: {
     fontSize: 24,
     fontWeight: 'bold',
-  },
-  labelText: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    marginVertical: 8,
-  },
-  input: {
-    borderWidth: 1,
-    borderColor: '#ccc',
-    borderRadius: 15,
-    padding: 15,
-    width: '100%',
+    marginBottom: 20,
   },
   button: {
     backgroundColor: '#000000',
@@ -41,12 +25,10 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
   },
-  errorContainer: {
-    height: 25,
-  },
-  errorText: {
-    color: 'red',
-    marginTop: 4,
+  formContainer: {
+    width: '100%',
+    marginBottom: 20,
+    flex: 1,
   },
 });
 
