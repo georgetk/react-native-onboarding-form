@@ -1,7 +1,7 @@
 # Onboarding Form App
 
 <p align="center">
-  <img src="demo.gif" alt="Demo" height="300"/>
+  <img src="demo.gif" alt="Demo" height="600"/>
 </p>
 
 A React Native onboarding form with dark/light mode support, form validation, and reusable components.
