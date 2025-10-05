@@ -1,6 +1,8 @@
 # Onboarding Form App
 
-![Demo](demo.gif)
+<p align="center">
+  <img src="demo.gif" alt="Demo" height="300"/>
+</p>
 
 A React Native onboarding form with dark/light mode support, form validation, and reusable components.
 
@@ -23,4 +25,11 @@ npm install
 ```bash
 npm run android
 ```
+
+## Running Tests
+
+```bash
+npm test
+```
+
 
