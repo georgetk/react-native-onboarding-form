@@ -1,4 +1,9 @@
-import { render, fireEvent, renderHook } from '@testing-library/react-native';
+import {
+  render,
+  fireEvent,
+  renderHook,
+  screen,
+} from '@testing-library/react-native';
 import Onboarding from '../Onboarding';
 import { FIELD_LABEL_MAP } from '../onboardingSchema';
 import {
@@ -6,6 +11,7 @@ import {
   useOnboardingForm,
 } from '../hooks/useOnboardingForm';
 import { useForm } from 'react-hook-form';
+import theme from '../../../utils/theme';
 
 jest.mock('../hooks/useOnboardingForm');
 
@@ -27,27 +33,29 @@ beforeEach(() => {
 });
 
 describe('Onboarding screen', () => {
+  const selectedTheme = theme.light;
+
   test('renders header text', () => {
-    const { getByTestId } = render(<Onboarding />);
-    expect(getByTestId('onboarding_header_text')).toBeTruthy();
+    render(<Onboarding selectedTheme={selectedTheme} />);
+    expect(screen.getByTestId('onboarding_header_text')).toBeTruthy();
   });
 
   test('renders input fields', () => {
-    const { getByTestId } = render(<Onboarding />);
+    render(<Onboarding selectedTheme={selectedTheme} />);
     Object.values(FIELD_LABEL_MAP).forEach(label => {
-      expect(getByTestId(`${label}_input`)).toBeTruthy();
+      expect(screen.getByTestId(`${label}_input`)).toBeTruthy();
     });
   });
 
   test('renders Submit button', () => {
-    const { getByTestId } = render(<Onboarding />);
-    expect(getByTestId('onboarding_submit_button')).toBeTruthy();
+    render(<Onboarding selectedTheme={selectedTheme} />);
+    expect(screen.getByTestId('onboarding_submit_button')).toBeTruthy();
   });
 
   test('calls handleSubmit(onSubmit) when Submit is pressed', () => {
-    const { getByText } = render(<Onboarding />);
+    render(<Onboarding selectedTheme={selectedTheme} />);
 
-    fireEvent.press(getByText('Submit'));
+    fireEvent.press(screen.getByText('Submit'));
 
     expect(mockHandleSubmit).toHaveBeenCalledWith(mockOnSubmit);
     expect(mockOnSubmit).toHaveBeenCalled();

@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, TextInput } from 'react-native';
 import { Control, Controller, FieldValues, Path } from 'react-hook-form';
 import styles from './styles';
+import { Theme } from '../../utils/theme';
 
 type Props<T extends FieldValues> = {
   control: Control<T>;
@@ -11,6 +12,7 @@ type Props<T extends FieldValues> = {
   keyboardType?: 'default' | 'numeric' | 'phone-pad';
   maxLength?: number;
   error?: string;
+  selectedTheme: Theme;
 };
 
 const FormField = <T extends FieldValues>({
@@ -21,9 +23,13 @@ const FormField = <T extends FieldValues>({
   keyboardType,
   maxLength,
   error,
+  selectedTheme,
 }: Props<T>) => (
   <>
-    <Text style={styles.labelText} accessibilityLabel={label}>
+    <Text
+      style={[styles.labelText, selectedTheme.labelStyle]}
+      accessibilityLabel={label}
+    >
       {label}
     </Text>
     <Controller
@@ -31,8 +37,13 @@ const FormField = <T extends FieldValues>({
       name={name}
       render={({ field: { onChange, onBlur, value } }) => (
         <TextInput
-          style={styles.input}
+          style={[
+            styles.input,
+            selectedTheme.borderStyle,
+            selectedTheme.inputTextStyle,
+          ]}
           placeholder={placeholder}
+          placeholderTextColor={selectedTheme.placeholderTextColor}
           onBlur={onBlur}
           onChangeText={onChange}
           value={value}
@@ -43,7 +54,11 @@ const FormField = <T extends FieldValues>({
       )}
     />
     <View style={styles.errorContainer}>
-      {error ? <Text style={styles.errorText}>{error}</Text> : null}
+      {error ? (
+        <Text style={[styles.errorText, selectedTheme.errorTextStyle]}>
+          {error}
+        </Text>
+      ) : null}
     </View>
   </>
 );

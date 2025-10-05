@@ -5,7 +5,6 @@ const styles = StyleSheet.create({
     height: 25,
   },
   errorText: {
-    color: 'red',
     marginTop: 4,
   },
   labelText: {
@@ -15,7 +14,6 @@ const styles = StyleSheet.create({
   },
   input: {
     borderWidth: 1,
-    borderColor: '#ccc',
     borderRadius: 15,
     padding: 20,
     width: '100%',

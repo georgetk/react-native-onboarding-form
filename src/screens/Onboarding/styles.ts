@@ -7,21 +7,28 @@ const styles = StyleSheet.create({
     marginTop: 50,
     marginHorizontal: 20,
   },
+  headerContainer: {
+    marginBottom: 20,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '100%',
+  },
   headerText: {
     fontSize: 24,
     fontWeight: 'bold',
-    marginBottom: 20,
   },
   button: {
-    backgroundColor: '#000000',
     padding: 20,
     borderRadius: 15,
     alignItems: 'center',
     marginBottom: 30,
     width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    gap: 10,
   },
   buttonText: {
-    color: '#fff',
     fontSize: 18,
     fontWeight: 'bold',
   },
@@ -29,6 +36,10 @@ const styles = StyleSheet.create({
     width: '100%',
     marginBottom: 20,
     flex: 1,
+  },
+  themeModeButton: {
+    position: 'absolute',
+    right: 0,
   },
 });
 

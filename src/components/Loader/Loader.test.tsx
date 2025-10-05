@@ -1,9 +1,9 @@
 import Loader from './Loader';
-import { render } from '@testing-library/react-native';
+import { render, screen } from '@testing-library/react-native';
 
 describe('Loader component', () => {
   test('renders loader correctly', () => {
-    const { getByTestId } = render(<Loader />);
-    expect(getByTestId('loader')).toBeTruthy();
+    render(<Loader />);
+    expect(screen.getByTestId('loader')).toBeTruthy();
   });
 });
