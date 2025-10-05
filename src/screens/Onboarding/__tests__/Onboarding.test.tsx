@@ -1,8 +1,8 @@
 import {
   render,
   fireEvent,
-  renderHook,
   screen,
+  renderHook,
 } from '@testing-library/react-native';
 import Onboarding from '../Onboarding';
 import { FIELD_LABEL_MAP } from '../onboardingSchema';
@@ -10,8 +10,8 @@ import {
   OnboardingFormData,
   useOnboardingForm,
 } from '../hooks/useOnboardingForm';
-import { useForm } from 'react-hook-form';
 import theme from '../../../utils/theme';
+import { useForm } from 'react-hook-form';
 
 jest.mock('../hooks/useOnboardingForm');
 
@@ -19,9 +19,9 @@ const mockedUseOnboardingForm = jest.mocked(useOnboardingForm);
 const mockOnSubmit = jest.fn();
 const mockHandleSubmit = jest.fn(cb => () => cb());
 
-beforeEach(() => {
-  const { result } = renderHook(() => useForm<OnboardingFormData>());
+const { result } = renderHook(() => useForm<OnboardingFormData>());
 
+beforeEach(() => {
   // default mock for all tests
   mockedUseOnboardingForm.mockReturnValue({
     control: result.current.control,
