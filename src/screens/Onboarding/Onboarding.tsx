@@ -20,7 +20,9 @@ const Onboarding = () => {
     <View style={styles.container}>
       {loading ? <Loader /> : null}
 
-      <Text style={styles.headerText}>{APP_TEXTS.ONBOARDING_HEADER}</Text>
+      <Text style={styles.headerText} testID="onboarding_header_text">
+        {APP_TEXTS.ONBOARDING_HEADER}
+      </Text>
 
       <View style={styles.formContainer}>
         <FormField
@@ -62,7 +64,11 @@ const Onboarding = () => {
         />
       </View>
 
-      <Pressable style={styles.button} onPress={handleSubmit(onSubmit)}>
+      <Pressable
+        style={styles.button}
+        onPress={handleSubmit(onSubmit)}
+        testID="onboarding_submit_button"
+      >
         <Text style={styles.buttonText}>{APP_TEXTS.ONBOARDING_SUBMIT}</Text>
       </Pressable>
     </View>

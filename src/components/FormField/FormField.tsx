@@ -23,7 +23,9 @@ const FormField = <T extends FieldValues>({
   error,
 }: Props<T>) => (
   <>
-    <Text style={styles.labelText}>{label}</Text>
+    <Text style={styles.labelText} accessibilityLabel={label}>
+      {label}
+    </Text>
     <Controller
       control={control}
       name={name}
@@ -36,6 +38,7 @@ const FormField = <T extends FieldValues>({
           value={value}
           keyboardType={keyboardType}
           maxLength={maxLength}
+          testID={`${label}_input`}
         />
       )}
     />
